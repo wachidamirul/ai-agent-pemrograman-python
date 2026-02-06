@@ -1,3 +1,5 @@
+import re
+
 from core.planner import Planner
 from core.memory import Memory
 from core.state import State
@@ -26,6 +28,12 @@ class Agent:
             return "summarize_text"
         return None
 
+    def extract_word_limit(self, text):
+        match = re.search(r'(\d+)\s*kata', text)
+        if match:
+            return int(match.group(1))
+        return 5  # default
+
     def run(self, user_input):
         plan = self.planner.create_plan(user_input)
         tool = self.decide_tool(user_input)
@@ -49,8 +57,9 @@ class Agent:
                         result = search_csv(keyword)
 
                     elif tool == "summarize_text":
+                        limit = self.extract_word_limit(step)
                         text = user_input.replace("ringkas", "").strip()
-                        result = summarize_text(text)
+                        result = summarize_text(text, limit)
 
                     else:
                         result = "Tidak ada tool yang sesuai"
