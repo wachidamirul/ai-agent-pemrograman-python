@@ -26,10 +26,9 @@ Untuk menjalankan agen ini, ikuti langkah-langkah berikut:
 
 1.  **Clone repositori** (jika belum):
     ```bash
-    git clone https://github.com/your-username/tugas-pemrograman-python.git
-    cd tugas-pemrograman-python
+    git clone https://github.com/wachidamirul/ai-agent-pemrograman-python.git
+    cd ai-agent-pemrograman-python
     ```
-    (Ganti `https://github.com/your-username/tugas-pemrograman-python.git` dengan URL repositori yang benar)
 
 2.  **Buat lingkungan virtual** (direkomendasikan):
     ```bash
